@@ -177,55 +177,44 @@
             </nav>
             <!-- Navbar End -->
 
-            <div class="bg-secondary rounded h-100 p-4">
-                <a href="newProduct.html"><button type="button" class="btn btn-success m-2" >Add Product</button></a>
-                <h6 class="mb-4">All Products</h6>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Buy Price(KSH)</th>
-                                <th scope="col">Sale Price(KSH)</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>bamburi Cement</td>
-                                <td>Doe</td>
-                                <td>120</td>
-                                <td>500</td>
-                                <td>123</td>
-                                <td><button type="button" class="btn btn-link m-2">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Iron Sheets</td>
-                                <td>Otto</td>
-                                <td>33</td>
-                                <td>650</td>
-                                <td>456</td>
-                                <td><button type="button" class="btn btn-link m-2">Edit</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>PVC Pipes</td>
-                                <td>Thornton</td>
-                                <td>78</td>
-                                <td>180</td>
-                                <td>789</td>
-                                <td><button type="button" class="btn btn-link m-2">Edit</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+
+
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                
+                <form action="" method="post">
+                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            
+                            <h3>New Product</h3>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingText" placeholder="First Name">
+                            <label for="floatingText">Product Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingText2" placeholder="Quantity">
+                            <label for="floatingText2">Quantity</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="floatingInput" placeholder="Buying Price">
+                            <label for="floatingInput">Buying Price</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="number" class="form-control" id="floatingPassword" placeholder="Selling Price">
+                            <label for="floatingPassword">Selling Price</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add Product</button>
+                    </div>
+                </form>
+                
             </div>
-           
+
         </div>
         <!-- Content End -->
 

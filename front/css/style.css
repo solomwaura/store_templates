@@ -1,0 +1,12 @@
+.store-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.available-items, .items-for-sale {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 45%;
+    height: 400px;
+    overflow: auto;
+}
