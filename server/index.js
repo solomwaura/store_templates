@@ -2,7 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+
+
 const app = express();
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const port = process.env.PORT || 3080;
 
 // Connect to your MongoDB database
@@ -18,13 +23,11 @@ mongoose.connect(MONGODB_URI, {
 })
 .catch(err => console.log(err));
 
-// Parse the request body
-app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // route for handling product upload
 const uploadProduct = require('./routes/newProduct');
-app.use('/uploadProduct', uploadProduct);
+app.use('/api', uploadProduct);
 
 app.listen(port, () => {
     console.log(`Server is running on port http://127.0.0.1:${port}`);
