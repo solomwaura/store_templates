@@ -1,53 +1,79 @@
+
 const products = [
-    { id: 1, name: 'Cement', price: 750 },
-    { id: 2, name: 'Iron Sheets', price: 600 },
-    { id: 3, name: 'Nails', price: 50 },
-    // Add more products as needed
+    { name: 'Simba Cement', price: 580 },
+    { name: 'Iron Sheet', price: 650 },
+    { name: 'Meshed Wire Mesh', price: 250 },
+    { name: 'Nails', price: 160 },
+    { name: 'Hose Pipes', price: 100 },
+    { name: 'Conduits', price: 25 },
+    { name: 'Blue Drums', price: 750 },
+    { name: 'United Paints', price: 1150 },
+    { name: 'Dura Paints', price: 1250 },
+    { name: 'Edged Hammer', price: 400 },
+    { name: 'Mattoke', price: 450 },
+    { name: 'Wheel barrow', price: 2000 }
 ];
 
-const availableItemsContainer = document.querySelector('.available-items');
+const cart = [];
 
-function displayAvailableItems() {
-    availableItemsContainer.innerHTML = '';
+function renderProducts() {
+    const productList = document.getElementById('productList');
 
     products.forEach(product => {
-        const productDiv = document.createElement('div');
-        productDiv.classList.add('product');
-        productDiv.innerHTML = `
-            <span>${product.name}</span>
-            <span>KSH. ${product.price.toFixed(2)}</span>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${product.name}</td>
+            <td>${product.price.toFixed(2)}</td>
+            <td><button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button></td>
         `;
-        availableItemsContainer.appendChild(productDiv);
+        productList.appendChild(tr);
     });
 }
 
-displayAvailableItems();
+function renderCart() {
+    const cartList = document.getElementById('cartList');
+    const totalElement = document.getElementById('total');
+    cartList.innerHTML = '';
 
-const itemsForSaleContainer = document.querySelector('.items-for-sale');
+    let totalCost = 0;
 
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `
-            <span>${product.name}</span>
-            <input type="number" value="1" min="1">
-            <span>$${product.price.toFixed(2)}</span>
-            <button onclick="removeFromCart(${productId})">Remove</button>
+    cart.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.price.toFixed(2)}</td>
+            <td><input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value)"></td>
+            <td>${(item.price * item.quantity).toFixed(2)}</td>
         `;
-        itemsForSaleContainer.appendChild(cartItem);
+        cartList.appendChild(tr);
+
+        totalCost += item.price * item.quantity;
+    });
+
+    totalElement.textContent = `Total: KSH ${totalCost.toFixed(2)}`;
+}
+
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+
+    renderCart();
+}
+
+function updateQuantity(name, quantity) {
+    const item = cart.find(item => item.name === name);
+
+    if (item) {
+        item.quantity = parseInt(quantity, 10);
+        renderCart();
     }
 }
 
-function removeFromCart(productId) {
-    const cartItems = itemsForSaleContainer.getElementsByClassName('cart-item');
-    for (let i = 0; i < cartItems.length; i++) {
-        const item = cartItems[i];
-        if (item.dataset.productId === productId) {
-            item.remove();
-        }
-    }
-}
-
+// Initial render
+renderProducts();
+renderCart();

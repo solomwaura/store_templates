@@ -1,12 +1,74 @@
-.store-container {
-    display: flex;
-    justify-content: space-between;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
-.available-items, .items-for-sale {
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 45%;
-    height: 400px;
-    overflow: auto;
+header{
+    padding: 11px 20px;
+    background-color: rgb(236, 15, 15);
+}
+.container{
+    display: flex;
+}
+
+#products, #cart {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    height: 72vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+#products{
+    background-color: rgb(137, 241, 241);
+}
+
+#cart {
+    background-color: #f2f2f2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input {
+    width: 40px;
+    text-align: center;
+}
+
+#total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+#process{
+    padding: 5px 10px;
+    background-color: rgb(49, 185, 49);
+    margin: 10px;
+    border: none;
+}
+
+footer{
+    padding: 5px 10px;
+}
+
+footer p {
+    color: blue;
 }

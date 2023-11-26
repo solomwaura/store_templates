@@ -3,18 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store System</title>
+    <title>Store Page</title>
     <link rel="stylesheet" href="./css/style.css">
+    
 </head>
 <body>
-    <div class="store-container">
-        <div class="available-items">
-            <!-- Available items will be displayed here -->
+    <header>
+        <h3>Prime Store</h3>
+    </header>
+
+    <div class="container">
+        <div id="products">
+            <h3>Store Products</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price(KSH)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="productList">
+                    <!-- Product items will be added here dynamically -->
+                </tbody>
+            </table>
         </div>
-        <div class="items-for-sale">
-            <!-- Items for sale will be displayed here -->
+    
+        <div id="cart">
+            <h2>Products Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price(KSH)</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cartList">
+                    <!-- Cart items will be added here dynamically -->
+                </tbody>
+            </table>
+            <div id="total">Total: KSH 0.00</div>
+            <button id="process">Process</button>
         </div>
     </div>
+
+
     <script src="./js/script.js"></script>
+
 </body>
+<footer>
+    <p>© 2023 Solo Prime Technologies.</p>
+</footer>
 </html>
