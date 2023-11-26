@@ -8,6 +8,22 @@ header{
     padding: 11px 20px;
     background-color: rgb(236, 15, 15);
 }
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.account{
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+
+}
+#logout{
+    background-color: rgb(236, 15, 15);
+    padding: 3px 10px;
+    border: none;
+}
 .container{
     display: flex;
 }
@@ -47,6 +63,9 @@ th {
 button {
     padding: 5px 10px;
     cursor: pointer;
+    border: none;
+    background-color: rgb(34, 34, 185);
+    border-radius: 4px;
 }
 
 input {
